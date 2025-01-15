@@ -1,12 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
-import { CounterApp } from './CounterApp';
+import { BrowserRouter, Routes, Route } from "react-router";
+import { HomeApp } from "./HomeApp";
+import { Navbar } from "./components/Navbar";
 
 export default function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<CounterApp value={0} />} />
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<HomeApp />} />
+        </Routes>
+    </BrowserRouter>
+  );
 }
