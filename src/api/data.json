@@ -120,6 +120,115 @@
                 "deletedAt": null
               }
             ]
+          },
+          {
+            "id": 3,
+            "name": "Piccolo",
+            "ki": "2.000.000",
+            "maxKi": "500.000.000",
+            "race": "Namekian",
+            "gender": "Male",
+            "description": "Es un namekiano que surgió tras ser creado en los últimos momentos de vida de su padre, siendo su actual reencarnación. Aunque en un principio fue el archienemigo de Son Goku, con el paso del tiempo fue haciéndose menos malvado hasta finalmente convertirse en un ser bondadoso y miembro de los Guerreros Z. A través del tiempo, también comenzó a tomarle cariño a su discípulo Son Gohan, a quien veía como una especie de \"vástago\" y formando un lazo de amistad con este.",
+            "image": "https://dragonball-api.com/characters/picolo_normal.webp",
+            "affiliation": "Z Fighter",
+            "deletedAt": null,
+            "originPlanet": {
+              "id": 1,
+              "name": "Namek",
+              "isDestroyed": true,
+              "description": "Planeta natal de los Namekianos. Escenario de importantes batallas y la obtención de las Dragon Balls de Namek.",
+              "image": "https://dragonball-api.com/planetas/Namek_U7.webp",
+              "deletedAt": null
+            },
+            "transformations": [
+              {
+                "id": 12,
+                "name": "Piccolo Super Namekian",
+                "image": "https://dragonball-api.com/transformaciones/Piccolo super namekiano.webp",
+                "ki": "2.175 Billion",
+                "deletedAt": null
+              },
+              {
+                "id": 13,
+                "name": "Piccolo Orange",
+                "image": "https://dragonball-api.com/transformaciones/picolo orange.webp",
+                "ki": "41.25 Quintillion",
+                "deletedAt": null
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Bulma",
+            "ki": "0",
+            "maxKi": "0",
+            "race": "Human",
+            "gender": "Female",
+            "description": "Bulma es la protagonista femenina de la serie manga Dragon Ball y sus adaptaciones al anime Dragon Ball, Dragon Ball Z, Dragon Ball Super y Dragon Ball GT. Es hija del Dr. Brief y su esposa Panchy, hermana menor de Tights y una gran amiga de Son Goku con quien inicia la búsqueda de las Esferas del Dragón. En Dragon Ball Z tuvo a Trunks, primogénito de quien sería su esposo Vegeta, a su hija Bra[3] y su hijo adulto del tiempo alterno Trunks del Futuro Alternativo.",
+            "image": "https://dragonball-api.com/characters/bulma.webp",
+            "affiliation": "Z Fighter",
+            "deletedAt": null,
+            "originPlanet": {
+              "id": 2,
+              "name": "Tierra",
+              "isDestroyed": false,
+              "description": "La Tierra también llamado Mundo del Dragón (Dragon World), es el planeta principal donde se desarrolla la serie de Dragon Ball. Se encuentra en el Sistema Solar de la Vía Láctea de las Galaxias del Norte del Universo 7, lugar que supervisa el Kaio del Norte, y tiene su equivalente en el Universo 6. El hogar de los terrícolas y los Guerreros Z. Ha sido atacado en varias ocasiones por enemigos poderosos.",
+              "image": "https://dragonball-api.com/planetas/Tierra_Dragon_Ball_Z.webp",
+              "deletedAt": null
+            },
+            "transformations": [
+              
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Freezer",
+            "ki": "530.000",
+            "maxKi": "52.71 Septillion",
+            "race": "Frieza Race",
+            "gender": "Male",
+            "description": "Freezer es el tirano espacial y el principal antagonista de la saga de Freezer.",
+            "image": "https://dragonball-api.com/characters/Freezer.webp",
+            "affiliation": "Army of Frieza",
+            "deletedAt": null,
+            "originPlanet": {
+              "id": 4,
+              "name": "Freezer No. 79",
+              "isDestroyed": true,
+              "description": "Planeta artificial utilizado por Freezer como base de operaciones y centro de clonación.",
+              "image": "https://dragonball-api.com/planetas/PlanetaFreezer.webp",
+              "deletedAt": null
+            },
+            "transformations": [
+              {
+                "id": 14,
+                "name": "Freezer 2nd Form",
+                "image": "https://dragonball-api.com/transformaciones/freezer 2nd forma.webp",
+                "ki": "1.060.000",
+                "deletedAt": null
+              },
+              {
+                "id": 15,
+                "name": "Freezer 3rd Form",
+                "image": "https://dragonball-api.com/transformaciones/Freezer_3.webp",
+                "ki": "2.120.000",
+                "deletedAt": null
+              },
+              {
+                "id": 16,
+                "name": "Freezer Perfect Form",
+                "image": "https://dragonball-api.com/transformaciones/render_freezer_perfect_form_by_poh2000-d4n0ewd.webp",
+                "ki": "60.000.000",
+                "deletedAt": null
+              },
+              {
+                "id": 17,
+                "name": "Freezer Perfect Form (Golden)",
+                "image": "https://dragonball-api.com/transformaciones/freezer_gold.webp",
+                "ki": "100 Quintillion",
+                "deletedAt": null
+              }
+            ]
           }
     ],
     "planets": [
