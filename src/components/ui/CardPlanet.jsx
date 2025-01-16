@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export function CardPlanet({ key, name, image }) {
+export function CardPlanet({ name, image }) {
   return (
-    <div className="cardPlanet" key={key} >
+    <div className="cardPlanet" >
       <img src={image} alt={name} className="imgPlanet" />
       <h2>{name}</h2>
     </div>
@@ -10,7 +10,6 @@ export function CardPlanet({ key, name, image }) {
 }
 
 CardPlanet.propTypes = {
-  key: PropTypes.number,
   name: PropTypes.string,
   image: PropTypes.string,
 };

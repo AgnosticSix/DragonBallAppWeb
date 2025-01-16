@@ -1,16 +1,9 @@
-.navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: #2C2F33;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 html, body {
     background-color: #21232A;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.3rem;
+    margin: 0;
 }
 
 h1 {
@@ -60,6 +53,13 @@ img {
     cursor: pointer;
 }
 
+.navbar {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #2C2F33;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 .cardCharacter:hover {
     transform: scale(1.05);

@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export function CardCharacter({ key, name, ki, race, image }) {
+export function CardCharacter({ name, ki, race, image }) {
   return (
-    <div className="cardCharacter" key={key}>
+    <div className="cardCharacter" >
       <img src={image} alt={name} className="imgCharacter" />
       <h2>{name}</h2>
       <p>Ki: {ki}</p>
@@ -12,7 +12,6 @@ export function CardCharacter({ key, name, ki, race, image }) {
 }
 
 CardCharacter.propTypes = {
-  key: PropTypes.number,
   name: PropTypes.string,
   ki: PropTypes.string,
   race: PropTypes.string,
