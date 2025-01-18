@@ -1,47 +1,36 @@
 import { useEffect, useState } from "react";
+import { getData } from "../../utils/localStorageUtils";
 
+export const useFetch = () => {
+  const [state, setState] = useState({
+    data: null,
+    isLoading: true,
+    hasError: null,
+  });
 
-export const useFetch = ( url ) => {
+  const getFetch = async () => {
+    setState({
+      ...state,
+      isLoading: true,
+    });
 
-    const [state, setState] = useState({
-        data: null,
-        isLoading: true,
-        hasError: null,
-    })
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const response = getData();
 
-    const getFetch = async () => {
+    setState({
+      data: response,
+      isLoading: false,
+      hasError: null,
+    });
+  };
 
+  useEffect(() => {
+    getFetch();
+  }, []);
 
-
-        setState({
-            ...state,
-            isLoading: true,
-        });
-
-        const response = await fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        });
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        const data = await response.json();
-
-        setState({
-            data,
-            isLoading: false,
-            hasError: null,
-        });
-    }
-
-
-    useEffect(() => {
-        getFetch();
-    }, [url])
-    
-    return {
-        data:      state.data,
-        isLoading: state.isLoading,
-        hasError:  state.hasError,
-    };
-}
+  return {
+    data: state.data,
+    isLoading: state.isLoading,
+    hasError: state.hasError,
+  };
+};
