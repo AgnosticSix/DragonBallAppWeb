@@ -5,7 +5,7 @@ import { useFetch } from "../../components/hooks/useFetch";
 import { Loader } from "../../components/ui/Loader/Loader";
 
 export const HomeApp = () => {
-  const { data, isLoading } = useFetch("/src/api/data.json");
+  const { data, isLoading } = useFetch();
   //const [planet, setPlanet] = useFetch("/src/api/data.json");
   
   return (
