@@ -2,12 +2,15 @@ import { CardCharacter } from "../../components/ui/CardCharacter";
 import { CardPlanet } from "../../components/ui/CardPlanet";
 //import ReactCardFlip from "react-card-flip";
 import { useFetch } from "../../components/hooks/useFetch";
+import { Loader } from "../../components/ui/Loader/Loader";
 
 export const HomeApp = () => {
-  const { data, isLoading, hasError } = useFetch("/src/api/data.json" );
+  const { data, isLoading } = useFetch("/src/api/data.json");
   //const [planet, setPlanet] = useFetch("/src/api/data.json");
   
   return (
+    isLoading ? 
+    <Loader /> :
     <div className="home">
       <h1>Characters</h1>
       <ul>

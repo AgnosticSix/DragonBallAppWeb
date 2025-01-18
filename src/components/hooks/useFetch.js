@@ -11,6 +11,8 @@ export const useFetch = ( url ) => {
 
     const getFetch = async () => {
 
+
+
         setState({
             ...state,
             isLoading: true,
@@ -22,6 +24,7 @@ export const useFetch = ( url ) => {
                 Accept: "application/json",
             },
         });
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         const data = await response.json();
 
         setState({

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export function CardCharacter({ name, ki, race, image, description, isFlipped }) {
+export const CardCharacter = ({ name, ki, race, image, description, isFlipped }) => {
   return (
     isFlipped ?
     <div className="cardCharacter" >
