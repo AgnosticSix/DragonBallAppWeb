@@ -874,6 +874,7 @@ __metadata:
     globals: "npm:^15.14.0"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.3.1"
+    react-card-flip: "npm:^1.2.3"
     react-dom: "npm:^18.3.1"
     react-hook-form: "npm:^7.54.2"
     react-router: "npm:^7.1.1"
@@ -2991,6 +2992,16 @@ __metadata:
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
   checksum: 10c0/14f76a8206bc3464f794fb2e3d3cc665ae416c01893ad7a02b23766eb07159144ee612ad67af5e84fa4479ccfe67678c4feb126b0485651b302babf66f04f9e9
+  languageName: node
+  linkType: hard
+
+"react-card-flip@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "react-card-flip@npm:1.2.3"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10c0/fabfdf28aa9f6613896b378d91ffbb66c3285216fc1cb9efce2f51b9919cd4203e748502b1f0021fc6a6b2d163e34bd55059d35fdb1a7f245c5c080ff3d78957
   languageName: node
   linkType: hard
 

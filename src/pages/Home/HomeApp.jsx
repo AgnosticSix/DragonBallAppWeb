@@ -1,57 +1,29 @@
-import { useState, useEffect } from "react";
 import { CardCharacter } from "../../components/ui/CardCharacter";
 import { CardPlanet } from "../../components/ui/CardPlanet";
+//import ReactCardFlip from "react-card-flip";
+import { useFetch } from "../../components/hooks/useFetch";
 
 export const HomeApp = () => {
-  const [character, setCharacter] = useState([]);
-  const [planet, setPlanet] = useState([]);
-  const getCharacters = () => {
-    fetch("/src/api/data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((character) => setCharacter(character.characters));
-  };
-
-  const getPlanets = () => {
-    fetch("/src/api/data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((planet) => setPlanet(planet.planets));
-  };
-
-  useEffect(() => {
-    getCharacters();
-  }, []);
-
-  useEffect(() => {
-    getPlanets();
-  }, []);
-
+  const { data, isLoading, hasError } = useFetch("/src/api/data.json" );
+  //const [planet, setPlanet] = useFetch("/src/api/data.json");
+  
   return (
     <div className="home">
-      <h1>Personajes</h1>
+      <h1>Characters</h1>
       <ul>
-        {character.map((character) => (
-          <CardCharacter
-            key={character.id}
-            name={character.name}
-            ki={character.ki}
-            race={character.race}
-            image={character.image}
-          />
-        ))}
+          {data?.characters?.map((character) => (
+            <CardCharacter
+              key={character.id}
+              name={character.name}
+              ki={character.ki}
+              race={character.race}
+              image={character.image}
+            />
+          ))}
       </ul>
-      <h1>Planetas</h1>
+      <h1>Planets</h1>
       <ul>
-        {planet.map((planet) => (
+        {data?.planets?.map((planet) => (
           <CardPlanet key={planet.id} name={planet.name} image={planet.image} />
         ))}
       </ul>

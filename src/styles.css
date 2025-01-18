@@ -61,6 +61,15 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.navbar__list {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #2C2F33;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-evenly;
+}
+
 .cardCharacter:hover {
     transform: scale(1.05);
 }
@@ -91,4 +100,3 @@ img {
     object-position: center center;
     object-fit: contain;
 }
-
