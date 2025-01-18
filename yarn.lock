@@ -872,8 +872,12 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^5.0.0"
     eslint-plugin-react-refresh: "npm:^0.4.16"
     globals: "npm:^15.14.0"
+    ldrs: "npm:^1.0.2"
+    prop-types: "npm:^15.8.1"
     react: "npm:^18.3.1"
+    react-card-flip: "npm:^1.2.3"
     react-dom: "npm:^18.3.1"
+    react-hook-form: "npm:^7.54.2"
     react-router: "npm:^7.1.1"
     vite: "npm:^6.0.5"
   languageName: unknown
@@ -2507,6 +2511,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ldrs@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "ldrs@npm:1.0.2"
+  checksum: 10c0/261bb9de8c4b65ce662048aef68f16ada299029c0751e6c6d1b3e7f782189ad9a277155dafeeda32c7299f981d697ebfd9e7c8f4f36b44be51531d8b5b209af3
+  languageName: node
+  linkType: hard
+
 "levn@npm:^0.4.1":
   version: 0.4.1
   resolution: "levn@npm:0.4.1"
@@ -2992,6 +3003,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-card-flip@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "react-card-flip@npm:1.2.3"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10c0/fabfdf28aa9f6613896b378d91ffbb66c3285216fc1cb9efce2f51b9919cd4203e748502b1f0021fc6a6b2d163e34bd55059d35fdb1a7f245c5c080ff3d78957
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
@@ -3001,6 +3022,15 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 10c0/a752496c1941f958f2e8ac56239172296fcddce1365ce45222d04a1947e0cc5547df3e8447f855a81d6d39f008d7c32eab43db3712077f09e3f67c4874973e85
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.54.2":
+  version: 7.54.2
+  resolution: "react-hook-form@npm:7.54.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 10c0/6eebead2900e3d369a989e7a20429f390dc75b3897142aa3107f1f6dabb9ae64fed201ea98cdcd8676e40466c97748aeb0c0d83264f5bd3a84dbc0b8e4863415
   languageName: node
   linkType: hard
 
