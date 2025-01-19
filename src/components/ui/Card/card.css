@@ -1,8 +1,8 @@
 /* From Uiverse.io by gharsh11032000 */
 .card {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 400px;
   background-color: #8f8f8f;
   border-radius: 10px;
   display: inline-flex;
@@ -16,9 +16,9 @@
 }
 
 .card img {
-  width: 200px;
-  min-height: 300px;
-  max-height: 300px;
+  width: 400px;
+  min-height: 400px;
+  max-height: 400px;
   margin: -20px;
   object-fit: scale-down;
   fill: #333;
@@ -50,14 +50,14 @@
 
 .card__title {
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
   color: #f2f2f2;
   font-weight: 700;
 }
 
 .card__subtitle {
   margin: 0;
-  font-size: 18px;
+  font-size: 24px;
   color: #f2f2f2;
   font-weight: 500;
 }
@@ -68,7 +68,7 @@
 
 .card__description {
   margin: 10px 0 0;
-  font-size: 10px;
+  font-size: 15px;
   color: #f2f2f2;
   line-height: 1;
 }

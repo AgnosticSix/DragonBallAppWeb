@@ -5,9 +5,9 @@ import { Card } from "../../components/ui/Card/Card";
 export const HomeApp = () => {
   const { data, isLoading } = useFetch();
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return ( isLoading ? 
+    <Loader /> 
+    : 
     <div className="home">
       <h1>Characters</h1>
       <ul>
