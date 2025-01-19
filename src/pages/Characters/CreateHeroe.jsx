@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getData, addItem } from '../../utils/localStorageUtils';
+import { getData, addCharacter } from '../../utils/localStorageUtils';
 
 export const CreateHeroe = () => {
   const initialData = getData();
@@ -50,7 +50,7 @@ export const CreateHeroe = () => {
     console.log(heroe);
 
     // Agregar el nuevo héroe al almacenamiento local
-    const updatedData = addItem({
+    const updatedData = addCharacter({
       id: heroe.id,
       name: heroe.name,
       ki: heroe.ki,
