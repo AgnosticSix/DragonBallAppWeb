@@ -1,22 +1,22 @@
 import PropTypes from "prop-types";
+import { InputText } from "primereact/inputtext";
+import "./input.css";
 
-export const Input = ({ name, type, placeholder, value, onChange }) => {
+export const Input = ({ id, value, placeholder, onChange }) => {
   return (
-    <input
-      className="input"
-      name={name}
-      placeholder={placeholder}
-      type={type}
+    <InputText
+      id={id}
       value={value}
+      placeholder={placeholder}
       onChange={onChange}
-    ></input>
+      className='inputCustom'
+    />
   );
 };
 
 Input.propTypes = {
-  name: PropTypes.string,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
+  id: PropTypes.string.isRequired,
   value: PropTypes.string,
+  placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };

@@ -1,28 +1,31 @@
-import { useState, useEffect, useRef } from 'react';
-import { getData, addCharacter } from '../../utils/localStorageUtils';
-import { Input } from '../../components/ui/Input/Input';
-import { ButtonCustom } from '../../components/ui/Button/Button';
-import { ToastCustom } from '../../components/ui/Toast/Toast';
+import { useState, useEffect, useRef } from "react";
+import { getData, addCharacter } from "../../utils/localStorageUtils";
+import { Input } from "../../components/ui/Input/Input";
+import { ButtonCustom } from "../../components/ui/Button/Button";
+import { ToastCustom } from "../../components/ui/Toast/Toast";
+import { Label } from "../../components/ui/Label/Label";
+import { TextArea } from "../../components/ui/TextArea/TextArea";
+import { DropdownCustom } from "../../components/ui/Dropdown/Dropdown";
 
 export const CreateHeroe = () => {
   const initialData = getData();
   const [heroe, setHeroe] = useState({
     id: initialData.characters.length + 1,
-    name: '',
-    ki: '',
-    maxKi: '',
-    race: '',
-    gender: '',
-    description: '',
-    image: '',
-    affiliation: '',
+    name: "",
+    ki: "",
+    maxKi: "",
+    race: "",
+    gender: "",
+    description: "",
+    image: "",
+    affiliation: "",
     deletedAt: null,
     originPlanet: {
-      name: '',
-      description: '',
-      image: ''
+      name: "",
+      description: "",
+      image: "",
     },
-    transformations: []
+    transformations: [],
   });
 
   const [planets, setPlanets] = useState([]);
@@ -36,15 +39,17 @@ export const CreateHeroe = () => {
     const { name, value } = e.target;
     setHeroe({
       ...heroe,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handlePlanetChange = (e) => {
-    const selectedPlanet = planets.find(planet => planet.name === e.target.value);
+    const selectedPlanet = planets.find(
+      (planet) => planet.name === e.target.value
+    );
     setHeroe({
       ...heroe,
-      originPlanet: selectedPlanet
+      originPlanet: selectedPlanet,
     });
   };
 
@@ -79,63 +84,122 @@ export const CreateHeroe = () => {
 
   const showToast = () => {
     toastRef.current.show({
-      severity: 'success',
-      summary: 'Success!',
-      detail: 'Hero created successfully',
-      life: 3000
+      severity: "success",
+      summary: "Success!",
+      detail: "Hero created successfully",
+      life: 3000,
     });
-  }
-  
+  };
+
   return (
     <div className="container-create-heroe">
       <h2>Crear Héroe</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Name:</label>
-          <Input name="name" type="text" placeholder="Name" value={heroe.name} onChange={handleChange} />
+          <Label htmlFor="name" name="Name: ">
+            <Input id="name" name="name" type="text" onChange={handleChange} />
+          </Label>
         </div>
         <div>
-          <label htmlFor='ki'>Ki:</label>
-          <Input name="ki" type="text" placeholder="Ki" value={heroe.ki} onChange={handleChange} />
+          <Label htmlFor="ki" name="Ki: ">
+            <Input id="ki" name="ki" type="text" onChange={handleChange} />
+          </Label>
         </div>
         <div>
-          <label htmlFor='maxKi'>Max Ki:</label>
-          <Input name="maxKi" type="text" placeholder="Max Ki" value={heroe.maxKi} onChange={handleChange} />
+          <Label htmlFor="maxKi" name="Max Ki: ">
+            <Input
+              id="maxKi"
+              name="maxKi"
+              type="text"
+              onChange={handleChange}
+            />
+          </Label>
         </div>
         <div>
-          <label htmlFor='race'>Race:</label>
-          <Input name="race" type="text" placeholder="Race" value={heroe.race} onChange={handleChange} />
+          <Label htmlFor="race" name="Race: ">
+            <Input id="race" name="race" type="text" onChange={handleChange} />
+          </Label>
         </div>
         <div>
-          <label htmlFor='gender'>Gender:</label>
-          <Input name="gender" type="text" placeholder="Gender" value={heroe.gender} onChange={handleChange} />
+          <Label htmlFor="gender" name="Gender: ">
+            <Input
+              id="gender"
+              name="gender"
+              type="text"
+              onChange={handleChange}
+            />
+          </Label>
         </div>
         <div>
-          <label htmlFor='description'>Description:</label>
-          <textarea name="description" value={heroe.description} onChange={handleChange}></textarea>
+          <label htmlFor="description">Description:</label>
+          <TextArea
+            name="description"
+            readOnly={false}
+            rows={5}
+            cols={30}
+          ></TextArea>
         </div>
         <div>
-          <label htmlFor='affiliation'>Affiliation:</label>
-          <Input name="affiliation" type="text" placeholder="Affiliation" value={heroe.affiliation} onChange={handleChange} />
+          <Label htmlFor="affiliation" name="Affiliation: ">
+            <Input
+              id="affiliation"
+              name="affiliation"
+              type="text"
+              onChange={handleChange}
+            />
+          </Label>
         </div>
         <div>
-          <label htmlFor='originPlanet'>Origin Planet:</label>
-          <select name="originPlanet.name" value={heroe.originPlanet.name} onChange={handlePlanetChange}>
+          <Label htmlFor="originPlanet" name="Origin Planet: ">
+            <DropdownCustom
+              value={heroe.originPlanet.name}
+              options={planets.map((planet) => ({
+                name: planet.name
+              })) || []}
+              optionLabel="name"
+              placeholder="Select a planet"
+              onChange={handlePlanetChange}
+            />
+          </Label>
+
+          {/* <select
+            name="originPlanet.name"
+            value={heroe.originPlanet.name}
+            onChange={handlePlanetChange}
+          >
             <option value="">Selecciona un planeta</option>
-            {planets.map(planet => (
-              <option key={planet.name} value={planet.name}>{planet.name}</option>
+            {planets.map((planet) => (
+              <option key={planet.name} value={planet.name}>
+                {planet.name}
+              </option>
             ))}
-          </select>
+          </select> */}
         </div>
         <div>
-          <label htmlFor='originPlanetDescription'>Origin Planet Description:</label>
-          <textarea name="originPlanet.description" value={heroe.originPlanet.description} readOnly></textarea>
+          <label htmlFor="originPlanetDescription">
+            Origin Planet Description:
+          </label>
+          <TextArea
+            name="originPlanet.description"
+            value={heroe.originPlanet.description}
+            onChange={handlePlanetChange}
+            readOnly={true}
+            rows={5}
+            cols={30}
+          ></TextArea>
         </div>
         <div>
-          <label htmlFor='originPlanetImage'>Origin Planet Image:</label>
-          <Input name="originPlanet.image" type="text" placeholder="Origin Planet Image" value={heroe.originPlanet.image} onChange={handleChange} />
+          <Label htmlFor="originPlanetImage" name="Origin Planet Image: ">
+            <Input
+              id="originPlanetImage"
+              name="originPlanetImage"
+              type="text"
+              value={heroe.originPlanet.image}
+              onChange={handlePlanetChange}
+            />
+          </Label>
         </div>
-        <ToastCustom ref={toastRef} position='top-right' />
+        <ToastCustom ref={toastRef} position="top-right" />
         <ButtonCustom type="submit" label="Submit" />
       </form>
     </div>
