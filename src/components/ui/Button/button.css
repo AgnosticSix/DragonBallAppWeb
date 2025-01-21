@@ -1,4 +1,3 @@
-/* From Uiverse.io by cssbuttons-io */
 .btnCustom {
   position: relative;
   font-size: 17px;
@@ -12,8 +11,8 @@
   border: none;
   font-family: inherit;
   font-weight: 500;
-  color: black;
-  background-color: white;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
 }
 
 .btnCustomCustom:hover {
@@ -37,7 +36,7 @@
   left: 0;
   z-index: -1;
   transition: all 0.4s;
-  background-color: #fff;
+  background-color: var(--secondary-color);
 }
 
 .btnCustom:hover::after {

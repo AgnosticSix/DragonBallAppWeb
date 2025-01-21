@@ -90,7 +90,7 @@ export const CreateHeroe = () => {
 
   return (
     <div className="containerform">
-      <h2>Crear Héroe</h2>
+      <h2>Create Heroe</h2>
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
           <Label htmlFor="name" text="Name: ">

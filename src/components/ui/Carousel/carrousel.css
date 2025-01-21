@@ -1,8 +1,8 @@
 .carouselCustom {
   background: var(--button-color);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  margin: 2rem
 }
 
 .p-carousel {
@@ -117,13 +117,6 @@
     background: #eef2ff;
     background-color: #4649ff;
     color: #4649ff;
-}
-
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-  unicode-bidi: isolate;
 }
 
 .p-reset {

@@ -1,5 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getData, updatePlanet, deletePlanet } from '../../utils/localStorageUtils';
+import { Input } from "../../components/ui/Input/Input";
+import { ButtonCustom } from "../../components/ui/Button/Button";
+import { ToastCustom } from "../../components/ui/Toast/Toast";
+import { Label } from "../../components/ui/Label/Label";
+import { TextArea } from "../../components/ui/TextArea/TextArea";
+import { DropdownCustom } from "../../components/ui/Dropdown/Dropdown";
+import { CheckboxCustom } from '../../components/ui/Checkbox/Checkbox';
 
 export const UpdatePlanet = () => {
   const initialData = getData();
@@ -44,66 +51,60 @@ export const UpdatePlanet = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(planet);
+    
+    updatePlanet(planet);
 
-    // Actualizar el planeta en el almacenamiento local
-    const updatedData = updatePlanet(planet);
+    showToast();
+  };
 
-    // Mostrar el JSON actualizado en la consola
-    console.log('JSON actualizado (almacenamiento local):', updatedData);
-    alert('Planeta actualizado exitosamente. Revisa la consola para ver el JSON actualizado.');
+  const toast = useRef(null);
+
+  const showToast = () => {
+    toast.current.show({
+      severity: 'success',
+      summary: 'Success!',
+      detail: 'Planet updated successfully',
+      life: 3000
+    });
   };
 
   const handleDelete = () => {
-    // Eliminar el planeta del almacenamiento local
-    const updatedData = deletePlanet(planet.id);
+    deletePlanet(planet.id);
 
-    // Mostrar el JSON actualizado en la consola
-    console.log('JSON actualizado (almacenamiento local):', updatedData);
     alert('Planeta eliminado exitosamente. Revisa la consola para ver el JSON actualizado.');
   };
 
   return (
-    <div>
-      <h2>Actualizar Planeta</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Selecciona un Planeta:</label>
-          <select onChange={handlePlanetChange}>
-            <option value="">Selecciona un planeta</option>
-            {initialData.planets.map(planet => (
-              <option key={planet.id} value={planet.id}>{planet.name}</option>
-            ))}
-          </select>
+    <div className="containerform">
+      <h2>Update Planet</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <Label htmlFor="planet" text="Select a Planet: ">
+            <DropdownCustom value={selectedPlanet?.name} options={initialData?.planets?.map((planet) => ({
+              name: planet.name,
+              value: planet.id
+            }))} optionLabel="name" placeholder="Select a planet" onChange={handlePlanetChange} />
+          </Label>
         </div>
         {selectedPlanet && (
           <>
-            <div>
-              <label>Nombre:</label>
-              <input type="text" name="name" value={planet.name} onChange={handleChange} />
+            <div className="form-group">
+              <Label htmlFor="name" text="Name: ">
+                <Input id="name" name="name" value={planet.name} onChange={handleChange} />
+              </Label>
             </div>
-            <div>
-              <label>Descripción:</label>
-              <textarea name="description" value={planet.description} onChange={handleChange}></textarea>
+            <div className="form-group">
+              <Label htmlFor="description" text="Description: ">
+                <TextArea name="description" value={planet.description} onChange={handleChange} />
+              </Label>
             </div>
-            <div>
-              <label>Imagen:</label>
-              <input type="text" name="image" value={planet.image} onChange={handleChange} />
+            <div className="form-group">
+              <Label htmlFor="isDestroyed" text="Is it destroyed?: ">
+                <CheckboxCustom checked={planet.isDestroyed} onChange={(e) => setPlanet({ ...planet, isDestroyed: e.target.checked })} />
+              </Label>
             </div>
-            <div>
-              <label>¿Está destruido?:</label>
-              <input type="checkbox" name="isDestroyed" checked={planet.isDestroyed} onChange={(e) => setPlanet({ ...planet, isDestroyed: e.target.checked })} />
-            </div>
-            <div>
-              <label>Personajes:</label>
-              <select multiple={true} value={planet.characters.map(character => character.id)} onChange={handleCharacterChange}>
-                {characters.map(character => (
-                  <option key={character.id} value={character.id}>{character.name}</option>
-                ))}
-              </select>
-            </div>
-            <button type="submit">Actualizar Planeta</button>
-            <button type="button" onClick={handleDelete}>Eliminar Planeta</button>
+            <ToastCustom ref={toast} />
+            <ButtonCustom type="submit" label="Update Planet" onClick={handleSubmit} text="Update Planet" />
           </>
         )}
       </form>

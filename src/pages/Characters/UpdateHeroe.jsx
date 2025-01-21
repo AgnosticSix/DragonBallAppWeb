@@ -77,8 +77,8 @@ export const UpdateHeroe = () => {
 
   const showToastUpdated = () => {
     toastRefUpdate.current.show({
-      severity: "success",
-      summary: "Success!",
+      severity: "info",
+      summary: "Info!",
       detail: "Hero updated successfully",
       life: 3000,
     });
@@ -94,22 +94,22 @@ export const UpdateHeroe = () => {
 
   const showToastDeleted = () => {
     toastRefDelete.current.show({
-      severity: "success",
-      summary: "Success!",
+      severity: "info",
+      summary: "Info!",
       detail: "Hero deleted successfully",
       life: 3000,
     });
   };
 
   return (
-    <div>
+    <div className="containerform">
       <h2>Update Heroe</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
           <Label htmlFor="heroe" text="Select a Heroe: ">
             <DropdownCustom
-              value={heroe.id}
-              options={heroe?.map((character) => ({
+              value={selectedHeroe?.name}
+              options={initialData?.characters?.map((character) => ({
                 name: character.name,
                 value: character.id,
               }))}
@@ -121,7 +121,7 @@ export const UpdateHeroe = () => {
         </div>
         {selectedHeroe && (
           <>
-            <div>
+            <div className="form-group">
               <Label htmlFor="name" text="Name: ">
                 <Input
                   id="name"
@@ -131,7 +131,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="ki" text="Ki: ">
                 <Input
                   id="ki"
@@ -141,7 +141,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="maxKi" text="Max Ki: ">
                 <Input
                   id="maxKi"
@@ -151,7 +151,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="race" text="Race: ">
                 <Input
                   id="race"
@@ -161,7 +161,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="gender" text="Gender: ">
                 <Input
                   id="gender"
@@ -171,7 +171,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="description" text="Description: ">
                 <TextArea
                   name="description"
@@ -183,7 +183,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="afiiliation" text="Afiliation: ">
                 <Input
                   id="affiliation"
@@ -193,7 +193,7 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
+            <div className="form-group">
               <Label htmlFor="originPlanet" text="Origin Planet: ">
                 <DropdownCustom
                   value={heroe.originPlanet.name}
@@ -207,8 +207,11 @@ export const UpdateHeroe = () => {
                 />
               </Label>
             </div>
-            <div>
-              <Label htmlFor="originPlanetDescription" text="Planet Description: ">
+            <div className="form-group">
+              <Label
+                htmlFor="originPlanetDescription"
+                text="Planet Description: "
+              >
                 <TextArea
                   name="originPlanet.description"
                   isReadOnly={true}
@@ -218,11 +221,13 @@ export const UpdateHeroe = () => {
                   cols={30}
                 />
               </Label>
-            </div>            
-            <button type="submit">Actualizar Héroe</button>
-            <button type="button" onClick={handleDelete}>
-              Eliminar Héroe
-            </button>
+            </div>
+            <ButtonCustom
+              type="submit"
+              label="Update Heroe"
+              onClick={showToastUpdated}
+            />
+            <ToastCustom ref={toastRefUpdate} position="top-right" />
           </>
         )}
       </form>

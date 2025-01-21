@@ -53,7 +53,7 @@ export const CreatePlanet = () => {
 
   return (
     <div className="containerform">
-      <h2>Crear Planeta</h2>
+      <h2>Create Planet</h2>
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
           <Label htmlFor="name" text="Name: ">

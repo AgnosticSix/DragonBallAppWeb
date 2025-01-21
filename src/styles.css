@@ -51,11 +51,11 @@ button {
   align-items: center;
 }
 
-.containerform{
+.containerform {
   display: flex;
-  margin: 20px;
+  margin: 20px auto;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 64vw;
   padding: 20px;
   background-color: var(--background-color);
   border-radius: 8px;
@@ -69,22 +69,7 @@ button {
 
 .form-group {
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-
-/* .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  color: var(--text-color);
-  background-color: var(--primary-color);
-} */
