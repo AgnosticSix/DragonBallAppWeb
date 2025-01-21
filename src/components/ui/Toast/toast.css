@@ -1,0 +1,32 @@
+.toastCustom {
+    background: rgba(253, 253, 253, 0.158);
+    border: solid #1ea97c;
+    border-width: 0 0 0 6px;
+    color: #1ea97c;
+}
+
+.p-toast .p-toast-message .p-toast-message-content {
+    padding: 1rem;
+}
+
+.p-toast-message-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.p-component {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.p-component, .p-component * {
+    box-sizing: border-box;
+}
+
+.p-toast .p-toast-message.p-toast-message-success {
+    background: rgba(228, 248, 240, 0.7);
+    border: solid #1ea97c;
+    border-width: 0 0 0 6px;
+    color: #1ea97c;
+}

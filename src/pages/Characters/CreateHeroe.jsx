@@ -1,56 +1,61 @@
-import { useState, useEffect } from 'react';
-import { getData, addCharacter } from '../../utils/localStorageUtils';
+import { useState, useEffect, useRef } from "react";
+import { getData, addCharacter } from "../../utils/localStorageUtils";
+import { Input } from "../../components/ui/Input/Input";
+import { ButtonCustom } from "../../components/ui/Button/Button";
+import { ToastCustom } from "../../components/ui/Toast/Toast";
+import { Label } from "../../components/ui/Label/Label";
+import { TextArea } from "../../components/ui/TextArea/TextArea";
+import { DropdownCustom } from "../../components/ui/Dropdown/Dropdown";
 
 export const CreateHeroe = () => {
   const initialData = getData();
   const [heroe, setHeroe] = useState({
     id: initialData.characters.length + 1,
-    name: '',
-    ki: '',
-    maxKi: '',
-    race: '',
-    gender: '',
-    description: '',
-    image: '',
-    affiliation: '',
+    name: "",
+    ki: "",
+    maxKi: "",
+    race: "",
+    gender: "",
+    description: "",
+    image: "",
+    affiliation: "",
     deletedAt: null,
     originPlanet: {
-      name: '',
-      description: '',
-      image: ''
+      name: "",
+      description: "",
+      image: "",
     },
-    transformations: []
+    transformations: [],
   });
 
   const [planets, setPlanets] = useState([]);
 
   useEffect(() => {
-    // Extraer los planetas únicos del almacenamiento local
     setPlanets(initialData.planets);
-  }, []); // Add an empty dependency array to ensure this runs only once
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setHeroe({
       ...heroe,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handlePlanetChange = (e) => {
-    const selectedPlanet = planets.find(planet => planet.name === e.target.value);
+    const selectedPlanet = planets.find(
+      (planet) => planet.name === e.target.value
+    );
     setHeroe({
       ...heroe,
-      originPlanet: selectedPlanet
+      originPlanet: selectedPlanet,
     });
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(heroe);
 
-    // Agregar el nuevo héroe al almacenamiento local
-    const updatedData = addCharacter({
+    addCharacter({
       id: heroe.id,
       name: heroe.name,
       ki: heroe.ki,
@@ -58,77 +63,155 @@ export const CreateHeroe = () => {
       race: heroe.race,
       gender: heroe.gender,
       description: heroe.description,
-      image: heroe.image,
+      image: "https://picsum.photos/seed/picsum/200/300",
       affiliation: heroe.affiliation,
       deletedAt: heroe.deletedAt,
       originPlanet: {
         name: heroe.originPlanet.name,
         description: heroe.originPlanet.description,
-        image: heroe.originPlanet.image
+        image: heroe.originPlanet.image,
       },
-      transformations: heroe.transformations
+      transformations: heroe.transformations,
     });
 
-    // Mostrar el JSON actualizado en la consola
-    console.log('JSON actualizado (almacenamiento local):', updatedData);
-    alert('Héroe creado exitosamente. Revisa la consola para ver el JSON actualizado.');
+    showToast();
   };
-  
-//TODO Modificar por componentes funcionales y setear la imagen por un placeholder
+
+  const toastRef = useRef(null);
+
+  const showToast = () => {
+    toastRef.current.show({
+      severity: "success",
+      summary: "Success!",
+      detail: "Hero created successfully",
+      life: 3000,
+    });
+  };
+
   return (
-    <div>
-      <h2>Crear Héroe</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre:</label>
-          <input type="text" name="name" value={heroe.name} onChange={handleChange} />
+    <div className="containerform">
+      <h2>Create Heroe</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <Label htmlFor="name" text="Name: ">
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              value={heroe.name}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Ki:</label>
-          <input type="text" name="ki" value={heroe.ki} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="ki" text="Ki: ">
+            <Input
+              id="ki"
+              name="ki"
+              type="text"
+              value={heroe.ki}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Max Ki:</label>
-          <input type="text" name="maxKi" value={heroe.maxKi} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="maxKi" text="Max Ki: ">
+            <Input
+              id="maxKi"
+              name="maxKi"
+              type="text"
+              value={heroe.maxKi}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Raza:</label>
-          <input type="text" name="race" value={heroe.race} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="race" text="Race: ">
+            <Input
+              id="race"
+              name="race"
+              type="text"
+              value={heroe.race}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Género:</label>
-          <input type="text" name="gender" value={heroe.gender} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="gender" text="Gender: ">
+            <Input
+              id="gender"
+              name="gender"
+              type="text"
+              value={heroe.gender}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Descripción:</label>
-          <textarea name="description" value={heroe.description} onChange={handleChange}></textarea>
+        <div className="form-group">
+          <Label htmlFor="description" text="Description: ">
+            <TextArea
+              name="description"
+              isReadOnly={false}
+              value={heroe.description}
+              rows={5}
+              cols={30}
+              onChange={handleChange}
+              />
+          </Label>
         </div>
-        <div>
-          <label>Imagen:</label>
-          <input type="text" name="image" value={heroe.image} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="affiliation" text="Affiliation: ">
+            <Input
+              id="affiliation"
+              name="affiliation"
+              type="text"
+              value={heroe.affiliation}
+              onChange={handleChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Afiliación:</label>
-          <input type="text" name="affiliation" value={heroe.affiliation} onChange={handleChange} />
+        <div className="form-group">
+          <Label htmlFor="originPlanet" text="Origin Planet: ">
+            <DropdownCustom
+              value={heroe.originPlanet.name}
+              options={
+                planets?.map((planet) => ({
+                  name: planet.name,
+                  value: planet.name,
+                })) || []
+              }
+              optionLabel="name"
+              placeholder="Select a planet"
+              onChange={handlePlanetChange}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Planeta de Origen:</label>
-          <select name="originPlanet.name" value={heroe.originPlanet.name} onChange={handlePlanetChange}>
-            <option value="">Selecciona un planeta</option>
-            {planets.map(planet => (
-              <option key={planet.name} value={planet.name}>{planet.name}</option>
-            ))}
-          </select>
+        <div className="form-group">
+          <Label htmlFor="originPlanetDescription" text="Origin Planet Description: ">
+            <TextArea
+              name="originPlanetDescription"
+              value={heroe.originPlanet.description}
+              onChange={handlePlanetChange}
+              isReadOnly={true}
+              rows={5}
+              cols={30}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Descripción del Planeta:</label>
-          <textarea name="originPlanet.description" value={heroe.originPlanet.description} readOnly></textarea>
+        <div className="form-group">
+          <Label htmlFor="originPlanetImage" text="Origin Planet Image: ">
+            <Input
+              id="originPlanetImage"
+              name="originPlanetImage"
+              type="text"
+              value={heroe.originPlanet.image}
+              onChange={handlePlanetChange}
+              isReadOnly={true}
+            />
+          </Label>
         </div>
-        <div>
-          <label>Imagen del Planeta:</label>
-          <input type="text" name="originPlanet.image" value={heroe.originPlanet.image} readOnly />
-        </div>
-        <button type="submit">Crear Héroe</button>
+        <ToastCustom ref={toastRef} position="top-right" />
+        <ButtonCustom type="submit" label="Submit" />
       </form>
     </div>
   );

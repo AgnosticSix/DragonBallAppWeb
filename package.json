@@ -1,7 +1,7 @@
 {
   "name": "actividad1-desarrolloweb",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
   "dependencies": {
     "actividad1-desarrolloweb": "file:",
     "ldrs": "^1.0.2",
+    "primereact": "^10.9.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
