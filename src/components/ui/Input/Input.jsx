@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { InputText } from "primereact/inputtext";
 import "./input.css";
 
-export const Input = ({ id, value, placeholder, onChange }) => {
+export const Input = ({ id, value, placeholder, onChange, isReadOnly }) => {
   return (
     <InputText
       id={id}
@@ -10,6 +10,7 @@ export const Input = ({ id, value, placeholder, onChange }) => {
       placeholder={placeholder}
       onChange={onChange}
       className='inputCustom'
+      readOnly={isReadOnly || false}
     />
   );
 };
@@ -19,4 +20,5 @@ Input.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
+  isReadOnly: PropTypes.bool,
 };

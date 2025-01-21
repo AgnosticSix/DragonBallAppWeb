@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import "./label.css";
 
-export const Label = ({ htmlFor, name, children }) => {
+export const Label = ({ htmlFor, text, children }) => {
   return (
     <>
       <label className="label" htmlFor={htmlFor}>
-        {name}
+        {text}
       </label>
       {children}
     </>
@@ -14,6 +14,6 @@ export const Label = ({ htmlFor, name, children }) => {
 
 Label.propTypes = {
   htmlFor: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
