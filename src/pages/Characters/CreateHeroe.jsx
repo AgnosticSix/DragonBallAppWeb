@@ -89,10 +89,10 @@ export const CreateHeroe = () => {
   };
 
   return (
-    <div className="container-create-heroe">
+    <div className="containerform">
       <h2>Crear Héroe</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
           <Label htmlFor="name" text="Name: ">
             <Input
               id="name"
@@ -103,7 +103,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="ki" text="Ki: ">
             <Input
               id="ki"
@@ -114,7 +114,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="maxKi" text="Max Ki: ">
             <Input
               id="maxKi"
@@ -125,7 +125,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="race" text="Race: ">
             <Input
               id="race"
@@ -136,7 +136,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="gender" text="Gender: ">
             <Input
               id="gender"
@@ -147,11 +147,11 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="description" text="Description: ">
             <TextArea
               name="description"
-              readOnly={false}
+              isReadOnly={false}
               value={heroe.description}
               rows={5}
               cols={30}
@@ -159,7 +159,7 @@ export const CreateHeroe = () => {
               />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="affiliation" text="Affiliation: ">
             <Input
               id="affiliation"
@@ -170,7 +170,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="originPlanet" text="Origin Planet: ">
             <DropdownCustom
               value={heroe.originPlanet.name}
@@ -186,7 +186,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="originPlanetDescription" text="Origin Planet Description: ">
             <TextArea
               name="originPlanetDescription"
@@ -198,7 +198,7 @@ export const CreateHeroe = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="originPlanetImage" text="Origin Planet Image: ">
             <Input
               id="originPlanetImage"

@@ -46,27 +46,27 @@ export const CreatePlanet = () => {
     toastRef.current.show({
       severity: "success",
       summary: "Success!",
-      detail: "Hero created successfully",
+      detail: "Planet created successfully",
       life: 3000,
     });
   };
 
   return (
-    <div>
+    <div className="containerform">
       <h2>Crear Planeta</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <Label htmlFor="namePlanet" text="Name: ">
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <Label htmlFor="name" text="Name: ">
             <Input
-              id="namePlanet"
+              id="name"
               type="text"
-              name="namePlanet"
+              name="name"
               value={planet.name}
               onChange={handleChange}
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="description" text="Description: ">
             <TextArea
               name="description"
@@ -78,7 +78,7 @@ export const CreatePlanet = () => {
             />
           </Label>
         </div>
-        <div>
+        <div className="form-group">
           <Label htmlFor="isDestroyed" text="Is it destroyed?: ">
             <CheckboxCustom
               isChecked={planet.isDestroyed}
