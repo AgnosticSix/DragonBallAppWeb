@@ -1,5 +1,5 @@
 /* From Uiverse.io by cssbuttons-io */
-.btn {
+.btnCustom {
   position: relative;
   font-size: 17px;
   text-transform: uppercase;
@@ -7,7 +7,7 @@
   padding: 1em 2.5em;
   display: inline-block;
   cursor: pointer;
-  border-radius: 6em;
+  border-radius: 1em;
   transition: all 0.2s;
   border: none;
   font-family: inherit;
@@ -16,22 +16,22 @@
   background-color: white;
 }
 
-.btn:hover {
+.btnCustomCustom:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.btn:active {
+.btnCustomCustom:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn::after {
+.btnCustom::after {
   content: "";
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 50px;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,7 +40,7 @@
   background-color: #fff;
 }
 
-.btn:hover::after {
+.btnCustom:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }

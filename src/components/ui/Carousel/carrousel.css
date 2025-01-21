@@ -1,0 +1,137 @@
+.carouselCustom {
+  background: var(--button-color);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.p-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-component {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.p-component,
+.p-component * {
+  box-sizing: border-box;
+}
+
+.p-carousel-content {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.p-carousel-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.p-carousel-items-content {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.p-carousel-items-container {
+  display: flex;
+  flex-direction: row;
+  transform: translate3d(0%, 0px, 0px);
+}
+
+.p-link {
+  text-align: left;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-family);
+  font-size: 1rem;
+}
+
+.p-link:disabled {
+  cursor: default;
+}
+
+.p-disabled,
+.p-component:disabled {
+  opacity: 0.6;
+}
+
+.p-carousel-prev,
+.p-carousel-next {
+  align-self: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.p-carousel .p-carousel-content .p-carousel-prev,
+.p-carousel .p-carousel-content .p-carousel-next {
+  margin: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  color: #6b7280;
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.p-carousel .p-carousel-indicators {
+  padding: 1rem;
+}
+
+.p-carousel-indicators {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+    background-color: var(--text-color);
+    width: 2rem;
+    height: 0.5rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    border-radius: 0;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background: #eef2ff;
+    background-color: #4649ff;
+    color: #4649ff;
+}
+
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}
+
+.p-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}

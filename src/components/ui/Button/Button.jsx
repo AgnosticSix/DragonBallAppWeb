@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
+import { Button } from "primereact/button";
+import "./button.css";
 
-export function Button({ onClick }) {
+export function ButtonCustom({ onClick, text, label }) {
   return (
-    <button className="btn" onClick={onClick}>Button</button>
+    <Button className="btnCustom" onClick={onClick} label={label}>
+      {text}
+    </Button>
   );
 }
 
-Button.propTypes = {
-  onClick: PropTypes.func
+ButtonCustom.propTypes = {
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  label: PropTypes.string,
 };
